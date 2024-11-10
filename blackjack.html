@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P3 of JS - BlackJack Game</title>
+    <link rel="stylesheet" href="blackjack.css">
+</head>
+<body>
+   <main class="board">
+        <h1>
+            <span>Lets play ... </span><br/>
+            BlackJack!
+        </h1>
+            <p id="message">Let's Play!</p>
+
+            <p id="display-cards">Cards:</p>
+            <p id="sum">Sum:</p>
+        <div class="btn-container">
+            <button onclick="startGame()">start game</button>
+            <button onclick="newCard()">new card</button>
+        </div>
+
+        <p id="player-info"></p>
+
+    </main>
+    <script>
+        /* VARIABLES */
+        const playerInfo={
+            name: "Player",
+            points:  200
+        }
+        const playerStats= document.getElementById("player-info")
+        let deckOfCards=[]
+        let sum = 0
+        let hasBlackjack = false
+        let isInGame= false
+        const message = document.getElementById
+        ("message")
+        let displayCards= document.getElementById
+        ("display-cards")
+        const result = document.getElementById
+        ("sum")
+        /*VARIABLES */
+
+        /* FUNCTIONALITY */
+        function startGame(){
+            isInGame= true
+            let firstCard = getRandomCard()
+            let secondCard = getRandomCard()
+
+            deckOfCards=[firstCard, secondCard]
+
+           sum= firstCard + secondCard
+            
+            playerStats.textContent=`${playerInfo.name}: P${playerInfo.points}` 
+            renderGame()
+        }
+
+        function getRandomCard(){
+             return randomNum = Math.floor(Math.random()*11 )+ 1
+
+            if(randomNum === 1){
+                return 11
+            }else if(randomNum > 10){
+                return 10
+            }else{
+                return randomNum
+            }
+
+     
+
+    }
+
+    function renderGame(){
+        displayCards.textContent=  `Cards: ${deckOfCards} `+ " "
+        
+
+        for(let i; i < deckOfCards.length; i+=1 ){
+            displayCards.textContent += deckOfCards[i]
+        }
+        result.textContent = `Sum: ${sum} `
+
+        if(sum <= 20){
+            message.textContent=" Do you want to draw another card ...?"
+        } else if(sum ===21){
+            message.textContent="You've Got Blackjack!"
+            hasBlackjack= true
+        }else{
+            message.textContent="Sorry, You lose!"
+        isInGame=false
+        }
+    }
+
+  
+    function newCard(){
+        if( isInGame === true && hasBlackjack === false){
+
+        let nxtCard= getRandomCard()
+        sum += nxtCard
+        deckOfCards.push(nxtCard)
+        renderGame()
+        }
+       
+    }
+    </script> 
+    
+</body>
+</html>

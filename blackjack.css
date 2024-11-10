@@ -1,0 +1,67 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family:Georgia, 'Times New Roman', Times, serif
+}
+:root{
+    --MainClr: red;
+    --SeconClr: gold;
+    
+}
+body{
+  
+}
+.board{
+    width:100%;
+    height: 100vh;
+    background-image: url(poker-background.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: center;
+    color: aliceblue;
+   
+}
+h1{
+    padding-top:2.5em ;
+}
+h1 span{
+    font-size: 1.2rem;
+   
+}
+p{
+    margin: 1.25em 0;
+}
+
+.btn-container{
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items:center ;
+   margin: 0 auto;
+  
+}
+
+button{
+    cursor: pointer;
+    margin-bottom: 1.2em;
+    padding: 0.5em 1em;
+    color:aliceblue;
+    border: 2px solid hsl(236, 70%, 44%);
+    border-radius: 10px;
+    background-color: hsl(1, 67%, 51%);
+    text-transform: uppercase;
+    width: 150px;
+    text-shadow: 2px 2px 2px hsl(0, 0%, 1%);
+}
+
+#message{
+    font-style: italic;
+    text-transform: capitalize;
+}
+#player-info{
+    margin-top: 1.2em;
+    text-align: center;
+    color: goldenrod;
+}
